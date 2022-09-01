@@ -1,0 +1,18 @@
+﻿  CMofImGuiProc.cpp
+  Color.cpp
+  GameApp.cpp
+  ImagesView.cpp
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  SequenceItem.cpp
+  Sequencer.cpp
+  WinMain.cpp
+D:\SchoolProgram\AnimationEditor\Project\Sequencer.h(140,11): warning C4101: 'type': ローカル変数は 1 度も使われていません。 (ソース ファイルをコンパイルしています Sequencer.cpp)
+D:\SchoolProgram\AnimationEditor\Project\Sequencer.h(140,11): warning C4101: 'type': ローカル変数は 1 度も使われていません。 (ソース ファイルをコンパイルしています GameApp.cpp)
+LINK : fatal error C1047: オブジェクトまたはライブラリ ファイル '..\..\MofLibrary\Library\libogg2017_md32.lib' は、'Release\CMofImGuiProc.obj' などの他のオブジェクトとは異なるバージョンのコンパイラで作成されています。同じコンパイラを使用してすべてのオブジェクトとライブラリをリビルドします
+LINK : fatal error LNK1257: コードの生成に失敗しました。

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\ImGUI">
+      <UniqueIdentifier>{fd02b8f6-d2ba-4ff8-8edb-74857de91b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Sequencer">
+      <UniqueIdentifier>{7dc05b16-5ed7-497f-9826-1ac2045f10c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ImagesVire">
+      <UniqueIdentifier>{671ca113-a866-435a-a512-7e32e95e077d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Image">
+      <UniqueIdentifier>{ee58e7ae-46d6-4b7d-a5e3-b7b8dfc6bdc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Color">
+      <UniqueIdentifier>{bfe7f12a-862d-430a-9fdd-dae8ec796d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\FolderVier">
+      <UniqueIdentifier>{bde9b8d9-6119-4cae-acee-2c4362769fc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="外部">
+      <UniqueIdentifier>{c71bd736-6ffc-4355-ae45-af68faebb820}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameApp.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CMofImGuiProc.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\imgui.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\imgui_demo.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\imgui_draw.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\backends\imgui_impl_dx11.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\backends\imgui_impl_win32.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\imgui_tables.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\imgui_widgets.cpp">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequencer.cpp">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceItem.cpp">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagesView.cpp">
+      <Filter>ソース ファイル\ImagesVire</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>ソース ファイル\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimationCreateInfo.cpp">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAsset.cpp">
+      <Filter>ソース ファイル\ImagesVire</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_neo_sequencer.cpp">
+      <Filter>外部</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_neo_internal.cpp">
+      <Filter>外部</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetsWindow.cpp">
+      <Filter>ソース ファイル\FolderVier</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameApp.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CMofImGuiProc.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imconfig.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imgui.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\backends\imgui_impl_dx11.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\backends\imgui_impl_win32.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imgui_internal.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imstb_rectpack.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imstb_textedit.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\imstb_truetype.h">
+      <Filter>ソース ファイル\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Sequencer.h">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceItem.h">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagesView.h">
+      <Filter>ソース ファイル\ImagesVire</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>ソース ファイル\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="PNGConvert.h">
+      <Filter>ソース ファイル\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimationCreateInfo.h">
+      <Filter>ソース ファイル\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageAsset.h">
+      <Filter>ソース ファイル\ImagesVire</Filter>
+    </ClInclude>
+    <ClInclude Include="imfilebrowser.h">
+      <Filter>外部</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_neo_internal.h">
+      <Filter>外部</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_neo_sequencer.h">
+      <Filter>外部</Filter>
+    </ClInclude>
+    <ClInclude Include="PayloadParameter.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetsWindow.h">
+      <Filter>ソース ファイル\FolderVier</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
