@@ -139,6 +139,7 @@ MofBool CGameApp::Update(void) {
     std::string t = std::format("{}", animation_info);
     outputFile << t;
     outputFile.close();
+    sequencer_->GetCellMap().value().write(filename + "_cellmap.png");
   }
     return TRUE;
 }
