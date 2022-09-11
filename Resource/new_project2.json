@@ -1,0 +1,23 @@
+{
+    "AnimationKeyFrame": {
+        "cereal_class_version": 1,
+        "items_": [
+            {
+                "name_": "Animation1",
+                "image_paths_": [],
+                "end_frame_": {
+                    "nullopt": true
+                },
+                "is_loop_": false
+            },
+            {
+                "name_": "Animation2",
+                "image_paths_": [],
+                "end_frame_": {
+                    "nullopt": true
+                },
+                "is_loop_": false
+            }
+        ]
+    }
+}

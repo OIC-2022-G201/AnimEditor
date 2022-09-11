@@ -59,7 +59,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Library\Include;$(SolutionDir)\Project\imGui;$(SolutionDir)\libpng-package</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Library\Include;$(SolutionDir)\Project\include\cereal;$(SolutionDir)\Project\include;$(SolutionDir)\Project\imGui;$(SolutionDir)\libpng-package</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -103,6 +103,7 @@
     <ClCompile Include="ImagesView.cpp" />
     <ClCompile Include="imGui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="imGui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="imGui\cpp\imgui_stdlib.cpp" />
     <ClCompile Include="imGui\imgui.cpp" />
     <ClCompile Include="imGui\imgui_demo.cpp" />
     <ClCompile Include="imGui\imgui_draw.cpp" />
@@ -110,21 +111,27 @@
     <ClCompile Include="imGui\imgui_widgets.cpp" />
     <ClCompile Include="imgui_neo_internal.cpp" />
     <ClCompile Include="imgui_neo_sequencer.cpp" />
+    <ClCompile Include="PreviewWindow.cpp" />
     <ClCompile Include="SequenceItem.cpp" />
     <ClCompile Include="Sequencer.cpp" />
     <ClCompile Include="SpriteAnimationCreateInfo.cpp" />
+    <ClCompile Include="TextBoxDialog.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsWindow.h" />
+    <ClInclude Include="CerealExtends.h" />
     <ClInclude Include="CMofImGuiProc.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="ColorScheme.h" />
+    <ClInclude Include="FormatExtends.h" />
     <ClInclude Include="GameApp.h" />
     <ClInclude Include="ImageAsset.h" />
     <ClInclude Include="ImagesView.h" />
     <ClInclude Include="imfilebrowser.h" />
     <ClInclude Include="imGui\backends\imgui_impl_dx11.h" />
     <ClInclude Include="imGui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="imGui\cpp\imgui_stdlib.h" />
     <ClInclude Include="imGui\imconfig.h" />
     <ClInclude Include="imGui\imgui.h" />
     <ClInclude Include="imGui\imgui_internal.h" />
@@ -135,9 +142,11 @@
     <ClInclude Include="imgui_neo_sequencer.h" />
     <ClInclude Include="PayloadParameter.h" />
     <ClInclude Include="PNGConvert.h" />
+    <ClInclude Include="PreviewWindow.h" />
     <ClInclude Include="SequenceItem.h" />
     <ClInclude Include="Sequencer.h" />
     <ClInclude Include="SpriteAnimationCreateInfo.h" />
+    <ClInclude Include="TextBoxDialog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

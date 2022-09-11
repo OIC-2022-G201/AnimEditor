@@ -14,6 +14,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLi
 	Mof::WINDOWSGAMEFRAMEWORKINITIALIZEINFO Info;
 	Info.pApplication = new CGameApp();
         Info.WindowCreateInfo.pProc = new CMofImGuiProc();
+        Info.WindowCreateInfo.Title = "Test";
 	pFrame->Initialize(&Info);
 	pFrame->Run();
 	MOF_SAFE_DELETE(pFrame);

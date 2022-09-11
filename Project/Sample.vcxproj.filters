@@ -34,6 +34,24 @@
     <Filter Include="外部">
       <UniqueIdentifier>{c71bd736-6ffc-4355-ae45-af68faebb820}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ImGUI\stdlib">
+      <UniqueIdentifier>{3f9563fa-4864-4fe1-8cc5-b98ec973cd8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PreviewWindow">
+      <UniqueIdentifier>{1649b10c-59ae-49c1-8168-5b0eedf53959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="外部\Cereal">
+      <UniqueIdentifier>{42b2f4d5-1f50-448d-a687-7d29e8a0186a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Dialog">
+      <UniqueIdentifier>{ccb43ddd-92bc-40a4-ba80-3bcc590f8b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Utilities">
+      <UniqueIdentifier>{b26e03ff-fc64-4ce7-af5c-c8e84e4ccd26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Utilities\format">
+      <UniqueIdentifier>{d80d2360-2232-4b8b-b42e-65a401a39938}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -92,6 +110,15 @@
     </ClCompile>
     <ClCompile Include="AssetsWindow.cpp">
       <Filter>ソース ファイル\FolderVier</Filter>
+    </ClCompile>
+    <ClCompile Include="imGui\cpp\imgui_stdlib.cpp">
+      <Filter>ソース ファイル\ImGUI\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewWindow.cpp">
+      <Filter>ソース ファイル\PreviewWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBoxDialog.cpp">
+      <Filter>ソース ファイル\Dialog</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +187,24 @@
     </ClInclude>
     <ClInclude Include="AssetsWindow.h">
       <Filter>ソース ファイル\FolderVier</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorScheme.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="imGui\cpp\imgui_stdlib.h">
+      <Filter>ソース ファイル\ImGUI\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewWindow.h">
+      <Filter>ソース ファイル\PreviewWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="CerealExtends.h">
+      <Filter>外部\Cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBoxDialog.h">
+      <Filter>ソース ファイル\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatExtends.h">
+      <Filter>ソース ファイル\Utilities\format</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

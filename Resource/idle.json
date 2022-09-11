@@ -1,0 +1,43 @@
+{
+    "AnimationKeyFrame": {
+        "cereal_class_version": 1,
+        "items_": [
+            {
+                "name_": "Idle",
+                "image_paths_": [
+                    {
+                        "key": 0,
+                        "value": "E-Idle0.png"
+                    },
+                    {
+                        "key": 6,
+                        "value": "E-Idle1.png"
+                    }
+                ],
+                "end_frame_": {
+                    "nullopt": false,
+                    "data": 10
+                },
+                "is_loop_": true
+            },
+            {
+                "name_": "Idle2",
+                "image_paths_": [
+                    {
+                        "key": 0,
+                        "value": "E-Idle5.png"
+                    },
+                    {
+                        "key": 10,
+                        "value": "E-Idle4.png"
+                    }
+                ],
+                "end_frame_": {
+                    "nullopt": false,
+                    "data": 20
+                },
+                "is_loop_": false
+            }
+        ]
+    }
+}

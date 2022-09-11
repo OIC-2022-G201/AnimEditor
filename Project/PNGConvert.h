@@ -40,22 +40,7 @@ struct TPngDestructor {
     }
   }
 };
-void WritePngToMemory(size_t w, size_t h, const ui8 *dataRGBA,
-                      std::vector<ui8> *out);
 
-void WritePngToMemory(png::image<png::rgba_pixel> &data,
-                      std::vector<ui8> *out) {
-  std::vector<png::rgba_pixel> image_pixels;
-
-  image_pixels.reserve(data.get_height() * data.get_width());
-
-  for (int i = 0; i < data.get_height(); ++i) {
-    image_pixels.insert(image_pixels.end(), data.get_row(i).begin(),
-                        data.get_row(i).end());
-  }
-  WritePngToMemory(data.get_width(), data.get_height(),
-                   (ui8 *)(image_pixels.data()), out);
-}
 void WritePngToMemory(size_t w, size_t h, const ui8 *dataRGBA,
                       std::vector<ui8> *out) {
   out->clear();
@@ -74,4 +59,17 @@ void WritePngToMemory(size_t w, size_t h, const ui8 *dataRGBA,
   png_set_rows(p, info_ptr, &rows[0]);
   png_set_write_fn(p, out, PngWriteCallback, NULL);
   png_write_png(p, info_ptr, PNG_TRANSFORM_IDENTITY, NULL);
+}
+void WritePngToMemory(png::image<png::rgba_pixel> &data,
+                      std::vector<ui8> *out) {
+  std::vector<png::rgba_pixel> image_pixels;
+
+  image_pixels.reserve(data.get_height() * data.get_width());
+
+  for (int i = 0; i < data.get_height(); ++i) {
+    image_pixels.insert(image_pixels.end(), data.get_row(i).begin(),
+                        data.get_row(i).end());
+  }
+  WritePngToMemory(data.get_width(), data.get_height(),
+                   (ui8 *)(image_pixels.data()), out);
 }

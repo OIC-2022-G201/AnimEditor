@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\SchoolProgram\AnimationEditor\Sample.exe</FullPath>
+      <FullPath>D:\SchoolProgram\AnimEditor\Sample.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

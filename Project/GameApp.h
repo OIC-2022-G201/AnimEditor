@@ -10,7 +10,9 @@
 #pragma once
 
 //INCLUDE
+#include "imfilebrowser.h"
 #include	"Mof.h"
+#include "TextBoxDialog.h"
 
 /*******************************//*!
 @brief	基本ゲームアプリ。
@@ -19,8 +21,15 @@
 *//********************************/
 class CGameApp : public CSingleGameApplication {
   class Sequencer* sequencer_ = nullptr;
+  class PreviewWindow* animation_previewer_ = nullptr;
+  std::string project_name_ = "new_project";
+  ImGui::FileBrowser file_dialog_{};
+  TextBoxDialog save_dialog_;
+  TextBoxDialog export_dialog_;
+  void ShowMainMenuFile();
 
- public:
+	void Save();
+public:
 	/*************************************************************************//*!
 			@brief			コンストラクタ
 			@param			None

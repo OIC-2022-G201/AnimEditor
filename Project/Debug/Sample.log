@@ -1,4 +1,5 @@
 ﻿  GameApp.cpp
-  Sequencer.cpp
-D:\SchoolProgram\AnimationEditor\Project\Sequencer.cpp(117,13): warning C4101: 'type': ローカル変数は 1 度も使われていません。
-  Sample.vcxproj -> D:\SchoolProgram\AnimationEditor\Sample.exe
+  SequenceItem.cpp
+  TextBoxDialog.cpp
+  WinMain.cpp
+  Sample.vcxproj -> D:\SchoolProgram\AnimEditor\Sample.exe
