@@ -173,13 +173,25 @@ void Sequencer::TimelineEvent() {
       selected_popup_timeline_ = std::nullopt;
       break;
     case 2:
+      if (current_select_item_ && current_select_item_.value() > 0) {
+        std::swap(items_[current_select_item_.value()],
+                  items_[current_select_item_.value() - 1]);
+      }
       selected_popup_timeline_ = std::nullopt;
       break;
     case 3:
+
+      if (current_select_item_ && current_select_item_.value() < items_.size() - 1) {
+        std::swap(items_[current_select_item_.value()],
+                  items_[current_select_item_.value() + 1]);
+      }
       selected_popup_timeline_ = std::nullopt;
       break;
     case 4:
       items_.erase(items_.begin() + current_select_item_.value());
+      if (items_.empty()) {
+        items_.emplace_back(SequenceItem("NewAnimation"));
+      }
       current_select_item_ = std::nullopt;
       selected_popup_timeline_ = std::nullopt;
       break;
@@ -195,6 +207,7 @@ bool Sequencer::Update() {
   window_flags |= ImGuiWindowFlags_NoResize;
   window_flags |= ImGuiWindowFlags_NoCollapse;
   window_flags |= ImGuiWindowFlags_HorizontalScrollbar;
+  window_flags |= ImGuiWindowFlags_AlwaysVerticalScrollbar;
 
   ImGui::SetNextWindowSize({io.DisplaySize.x, 250});
   ImGui::SetNextWindowPos({0, io.DisplaySize.y - 250});
@@ -210,9 +223,13 @@ bool Sequencer::Update() {
   PlayerRender();
   Play();
   InitialContent();
-  draw_list->AddRectFilled(canvas_pos,
-                           canvas_pos + canvas_size + scroll_position_,
-                           kBackgroundColor, 0);
+  {
+    auto start = canvas_pos;
+    start.y += scroll_position_.y;
+    auto end = start + canvas_size + scroll_position_;
+
+    draw_list->AddRectFilled(start, end, kBackgroundColor, 0);
+  }
   HeaderRender();
   ContentRender();
   CursorSetting();
@@ -288,20 +305,25 @@ void Sequencer::DrawLine(int i, int region_height) const {
   int sx = scroll_position_.x;
   if (px <= (canvas_size.x + canvas_pos.x + sx) &&
       px >= (canvas_pos.x + legendWidth)) {
-    draw_list->AddLine(ImVec2((float)px, canvas_pos.y + (float)tiretStart),
-                       ImVec2((float)px, canvas_pos.y + (float)tiretEnd - 1),
+    draw_list->AddLine(ImVec2((float)px, canvas_pos.y + scroll_position_.y +
+                                             (float)tiretStart),
+                       ImVec2((float)px, canvas_pos.y + scroll_position_.y +
+                                             (float)tiretEnd - 1),
                        0xFF606060, 1);
 
-    draw_list->AddLine(
-        ImVec2((float)px, canvas_pos.y + (float)header_height_),
-        ImVec2((float)px, canvas_pos.y + (float)region_height - 1), 0x30606060,
-        1);
+    draw_list->AddLine(ImVec2((float)px, canvas_pos.y + scroll_position_.y +
+                                             (float)header_height_),
+                       ImVec2((float)px, canvas_pos.y + scroll_position_.y +
+                                             (float)region_height - 1),
+                       0x30606060, 1);
   }
 
   if (baseIndex && px >= (canvas_pos.x + legendWidth)) {
     char tmps[512];
     ImFormatString(tmps, IM_ARRAYSIZE(tmps), "%d", i);
-    draw_list->AddText(ImVec2((float)px + 3.f, canvas_pos.y), 0xFFBBBBBB, tmps);
+    draw_list->AddText(
+        ImVec2((float)px + 3.f, canvas_pos.y + scroll_position_.y), 0xFFBBBBBB,
+        tmps);
   }
 }
 
@@ -324,14 +346,15 @@ void Sequencer::InitialContent() {
   scroll_position_ = {ImGui::GetScrollX(), ImGui::GetScrollY()};
   scrollBarSize = {canvas_size.x, 14.f};
   ImGui::InvisibleButton("topBar", headerSize);
-  draw_list->AddRectFilled(canvas_pos, canvas_pos + headerSize, 0xFFFF0000, 0);
   childFramePos = ImGui::GetCursorScreenPos();
   childFrameSize = {canvas_size.x, canvas_size.y - 8.f - headerSize.y -
                                        (hasScrollBar ? scrollBarSize.y : 0)};
   ImGui::PushStyleColor(ImGuiCol_FrameBg, 0);
-  ImVec2 cs = ImVec2{ContentXPosition(frame_max * 2), 10};
-  ImGui::BeginChild("scrolling", cs, true,
-                    ImGuiWindowFlags_HorizontalScrollbar);
+  auto ypos = ContentYPosition(items_.size() + 1) - childFramePos.y;
+  ImVec2 cs = ImVec2{ContentXPosition(frame_max * 2), ypos};
+  ImGui::BeginChild("scrolling", cs, false,
+                    ImGuiWindowFlags_HorizontalScrollbar |
+                        ImGuiWindowFlags_AlwaysVerticalScrollbar);
   contentMin = ImGui::GetItemRectMin();
   contentMax = ImGui::GetItemRectMax();
   contentRect = {contentMin, contentMax};
@@ -389,14 +412,13 @@ void Sequencer::ContentRender() const {
                                            static_cast<float>(ItemSize - 1)},
                              col);
     draw_list->AddText(tpos, 0xFFFFFFFF, items_[i].GetName().data());
-    ImGui::TextColored(ImVec4(1.0f, 0.0f, 1.0f, 1.0f), "Pink");
   }
   for (int i = 0; i < sequenceCount; i++) {
     unsigned int col = (i & 1) ? 0xFF3A3636 : 0xFF413D3D;
 
     ImVec2 pos = ImVec2(contentMin.x + legendWidth, ContentYPosition(i));
     ImVec2 sz = ImVec2(canvas_size.x + canvas_pos.x + scroll_position_.x,
-                       pos.y + ItemSize - 1);
+                       pos.y + scroll_position_.y + ItemSize - 1);
 
     draw_list->AddRectFilled(pos, sz, col, 0);
     draw_list->AddLine(
@@ -415,10 +437,12 @@ void Sequencer::ContentRender() const {
 }
 
 void Sequencer::HeaderRender() const {
+  auto start = canvas_pos;
+  start.y += scroll_position_.y;
   draw_list->AddRectFilled(
-      canvas_pos,
+      start,
       ImVec2(canvas_size.x + canvas_pos.x + scroll_position_.x,
-             canvas_pos.y + header_height_),
+             canvas_pos.y + scroll_position_.y + header_height_),
       0xFF3D3837, 0);
 
   for (int i = frame_min; i <= frame_max; i += frameStep) {

@@ -134,5 +134,4 @@ public:
     archive(CEREAL_NVP(items_));
   }
 };
-
 CEREAL_CLASS_VERSION(Sequencer, 1);

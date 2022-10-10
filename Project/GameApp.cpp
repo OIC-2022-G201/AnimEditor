@@ -79,7 +79,7 @@ MofBool CGameApp::Initialize(void) {
 
   export_dialog_.SetTitleText("ProjectExport");
   export_dialog_.SetHeadLabel("Project Export");
-  export_dialog_.SetInputLabel(".ae");
+  export_dialog_.SetInputLabel(".txt");
   return TRUE;
 }
 /*************************************************************************//*!
@@ -134,12 +134,16 @@ MofBool CGameApp::Update(void) {
   export_dialog_.Display();
   if (export_dialog_.IsOk()) {
     std::string filename = export_dialog_.Value().data();
-    std::ofstream outputFile( filename+ ".ae", std::ios::out);
+    std::ofstream outputFile( filename+ ".txt", std::ios::out);
+    outputFile << "//プログラマー用のコード\n//"
+                  "MofのSpriteAnimationCreate形式のデータです。\nプログラマーに"
+                  "このファイルと"
+               << filename << "_MotionChip.pngを渡してください。";
     auto animation_info = sequencer_->GetAnimationCreateInfo();
     std::string t = std::format("{}", animation_info);
     outputFile << t;
     outputFile.close();
-    sequencer_->GetCellMap().value().write(filename + "_cellmap.png");
+    sequencer_->GetCellMap()->write(filename + "_MotionChip.png");
   }
     return TRUE;
 }
