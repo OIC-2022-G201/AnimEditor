@@ -12,8 +12,9 @@ void SequenceItem::Insert(uint32_t frame, asset::ImageAsset image)
 
 void SequenceItem::Erase(uint32_t frame)
 {
-  image_paths_.erase(frame);
   size_t d = std::distance(image_paths_.begin(), image_paths_.find(frame));
+  image_paths_.erase(frame);
+
   images_view_.Remove({d, 0});
 }
 
